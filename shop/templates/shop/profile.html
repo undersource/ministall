@@ -1,0 +1,12 @@
+{% extends 'shop/base.html' %}
+{% load shop_tags_and_filters %}
+
+{% block main %}
+    <div class="profile">
+        <h1>{{ user.username }}</h1>
+        <h3>Monero address:</h3>
+        {{ user.monero_address }}
+        <h3>Balance:</h3>
+        {% balance %} XMR
+    </div>
+{% endblock main %}

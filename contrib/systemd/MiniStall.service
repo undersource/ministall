@@ -1,0 +1,13 @@
+[Unit]
+Description=MiniStall - Mini shop with cryptocurrency payment system of Monero
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/var/www/MiniStall
+ExecStart=/var/www/MiniStall/venv/bin/gunicorn -w 4 -b unix:/var/www/MiniStall/MiniStall.sock MiniStall.wsgi:application
+
+[Install]
+WantedBy=multi-user.target

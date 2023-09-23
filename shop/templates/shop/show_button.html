@@ -1,0 +1,5 @@
+{% if bought == True %}
+    <button class="buy"><a href="{{ product.get_file }}">Download</a></button>
+{% else %}
+    <button class="buy"><a href="{{ product.get_absolute_url }}">Buy</a></button>
+{% endif %}

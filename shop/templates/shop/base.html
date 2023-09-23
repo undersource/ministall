@@ -1,0 +1,56 @@
+{% load static %}
+{% load shop_tags_and_filters %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <link type="text/css" rel="stylesheet" href="{% static 'shop/css/styles.css' %}">
+        <title>{{ title }}</title>
+    </head>
+    <body>
+        <header>
+            <nav class="header">
+                <div class="container">
+                    <a class="home" href="{% url 'index' %}">Home</a>
+                    {% if categories.count > 0 %}
+                        <div class="menu">
+                            <button class="menu-button">Catigories</button>
+                            <div class="menu-content">
+                                {% for category in categories %}
+                                    <a href="{{ category.get_absolute_url }}">{{ category.name }}</a>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    {% endif %}
+                    <form class="presearch" action="/search">
+                        <input class="search" name="q" type="search" placeholder="Search" autocomplete="off">
+                    </form>
+                    <div class="user-menu">
+                        {% if request.user.is_authenticated %}
+                            <div class="menu">
+                                <button class="menu-button">{{ user.username }}</button>
+                                <div class="menu-content">
+                                    <p class="user-button">Balance {% balance %} XMR</p>
+                                    {% if user.is_superuser %}
+                                        <a class="user-button" href="admin">Profile</a>
+                                    {% else %}
+                                        <a class="user-button" href="{% url 'profile' %}">Profile</a>
+                                    {% endif %}
+                                    <a class="user-button" href="{% url 'password' %}">Change password</a>
+                                    <a class="user-button" href="{% url 'unregister' %}">Delete account</a>
+                                    <a class="user-button" href="{% url 'logout' %}">Logout</a>
+                                </div>
+                            </div>
+                        {% else %}
+                            <a class="user-button" href="{% url 'register' %}">Register</a>
+                            <a class="user-button" href="{% url 'login' %}">Login</a>
+                        {% endif %}
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <div class="content">
+            {% block main %}
+            {% endblock main %}
+    </body>
+</html>

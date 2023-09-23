@@ -1,0 +1,30 @@
+{% extends 'shop/base.html' %}
+{% load shop_tags_and_filters %}
+
+{% block main %}
+    {% for product in products %}
+        <div class="product">
+            <div class="product-image">
+                <img src="{{ product.logo.url }}" class="product-image">
+            </div>
+            <div class="product-name">
+                <h3>
+                    {{ product.title }}
+                </h3>
+                <span>
+                    {{ product.description }}
+                </span>
+            </div>
+            <div class="product-buy">
+                <div class="price-wrap">
+                    <div class="price">
+                        {{ product.price|strip_zeros }} XMR
+                    </div>
+                    {% if request.user.is_authenticated %}
+                        {% show_button %}
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock main %}

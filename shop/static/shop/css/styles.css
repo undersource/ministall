@@ -1,0 +1,244 @@
+body {
+    color: #333;
+    background-color: #ddd;
+    font-family: PT Sans,Helvetica,Arial,sans-serif;
+    font-size: 16px;
+    line-height: 1.42857;
+}
+
+header {
+    height: 64px;
+    position: relative;
+    font-size: 14px;
+    display: block;
+}
+
+.container {
+    margin-left: auto;
+    margin-right: auto;
+    min-height: 75%;
+    max-width: 1000px;
+    padding: 0 10px;
+    background: #fff;
+    display: flex;
+    flex-flow: row;
+    white-space: nowrap;
+    box-sizing: border-box;
+    font-size: 15px;
+    align-items: center;
+    display: flex;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+.home {
+    color: #333;
+    text-decoration: none;
+}
+
+.menu {
+    position: relative;
+    display: inline-block;
+}
+
+.menu-button {
+    color: #333;
+    background: #fff;
+    border: none;
+    padding-left: 20px;
+    font-size: 15px;
+}
+
+.menu-content {
+    background: #fff;
+    display: none;
+    position: absolute;
+    min-width: 200px;
+    border: 1px solid #333;
+}
+
+.menu-content a {
+    color: #333;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.menu-content a:hover {
+    background-color: #ddd;
+}
+
+.menu:hover .menu-content {
+    display: block;
+}
+
+.presearch {
+    box-sizing: border-box;
+    display: inline-block;
+    height: 64px;
+    padding: 12px 20px;
+    width: 100%;
+}
+
+.search {
+    box-sizing: border-box;
+    color: #333;
+    background: #eee;
+    border: none;
+    border-radius: 8px;
+    height: 40px;
+    outline: none;
+    padding: 0 80px 0 12px;
+    width: 100%;
+}
+
+.user-menu {
+    align-items: center;
+    display: flex;
+    padding-left: 40px;
+}
+
+.user-button {
+    color: #333;
+    text-decoration: none;
+    padding-left: 20px;
+
+}
+
+.content {
+    grid-gap: 10px;
+    display: grid;
+    grid-template-columns: 1fr;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    min-height: 75%;
+    max-width: 1000px;
+    padding: 0 10px;
+}
+
+.profile {
+    background: #fff;
+    grid-gap: 12px 0;
+    display: block;
+    padding: 24px 16px;
+    text-align: center;
+}
+
+.product {
+    background: #fff;
+    grid-gap: 12px 0;
+    display: grid;
+    grid-template-rows: 1fr 32px 20px;
+    padding: 24px 16px;
+}
+
+.product-image {
+    grid-column: 1;
+    grid-row: 1/4;
+    height: 150px;
+    margin-right: 12px;
+    width: 150px;
+}
+
+.product-name {
+    grid-column: 2;
+    grid-row: 1;
+    max-height: 100px;
+    font-size: 16px;
+    line-height: 22px;
+    overflow: hidden;
+    text-align: center;
+}
+
+.product-buy {
+    display: grid;
+    grid-column: 3;
+    grid-row: 1/3;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto 1fr;
+    justify-self: right;
+    padding-left: 12px;
+}
+
+.price-wrap {
+    grid-gap: 10px;
+    display: grid;
+    grid-template-columns: 1fr;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.price {
+    font-size: 20px;
+    grid-row: 1;
+    align-self: flex-start;
+    background: none;
+    padding-bottom: 16px;
+    text-align: right;
+}
+
+.buy {
+    color: #333;
+    background: #fff;
+    border: 1px solid #d9d9d9;
+    border-radius: 8px;
+    grid-row: 2;
+    height: 44px;
+    min-width: 100px;
+    cursor: pointer;
+}
+
+.buy a {
+    color: #000;
+    font-size: 15px;
+    text-decoration: none;
+}
+
+.container-login {
+    padding: 50px;
+    background: #eee;
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.login {
+    text-align: center;
+}
+
+.login input {
+    color: #333;
+    background: #ddd;
+    border: none;
+    outline: none;
+    height: 40px;
+    margin-top: 10px;
+    padding: 0 70px 0 15px;
+}
+
+.login img {
+    height: 40px;
+    margin-top: 10px;
+}
+
+.login button {
+    font-size: 16px;
+    color: #000;
+    border: none;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px;
+    width: 100%;
+    height: 40px;
+    transition: all .4s;
+    margin-top: 10px;
+}
+
+.form-error {
+    color: red;
+}

@@ -1,0 +1,43 @@
+{% load static %}
+{% load shop_tags_and_filters %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <link type="text/css" rel="stylesheet" href="{% static 'shop/css/styles.css' %}">
+        <title>{{ title }}</title>
+    </head>
+    <body>
+        <header>
+            <div class="container">
+                <h3>Are you sure you want to buy a "{{ product.title }}"?</h3>
+            </div>
+        </header>
+        <div class="content">
+            <div class="product">
+                <div class="product-image">
+                    <img src="{{ product.logo.url }}" class="product-image">
+                </div>
+                <div class="product-name">
+                    <h3>
+                        {{ product.title }}
+                    </h3>
+                    <span>
+                        {{ product.description }}
+                    </span>
+                </div>
+                <div class="product-buy">
+                    <div class="price-wrap">
+                        <div class="price">
+                            {{ product.price|strip_zeros }} XMR
+                        </div>
+                        <form action="{% url 'payment' product.slug %}" method="post">
+                            {% csrf_token %}
+                            <button class="buy" type="submit">Buy</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
